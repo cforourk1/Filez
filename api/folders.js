@@ -5,13 +5,13 @@ import { createFile } from "#db/queries/files";
 const router = express.Router();
 export default router;
 
-// GET /folders
+// GET folders
 router.get("/", async (req, res) => {
   const folders = await getFolders();
   res.send(folders);
 });
 
-// GET /folders/:id
+//  get the folder by id
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   const folder = await getFoldersById(id);
@@ -21,7 +21,7 @@ router.get("/:id", async (req, res) => {
   res.send(folder);
 });
 
-// POST /folders/:id/files
+// POST create files
 router.post("/:id/files", async (req, res) => {
   const { id } = req.params;
   const folder = await getFoldersById(id);
